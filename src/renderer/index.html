@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rouo Format</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand"><img src="../../assets/rouo-icon.png" alt="Rouo Format"><span>Rouo Format</span></div>
+      <nav class="switch" aria-label="转换类别"><button data-mode="doc" type="button">文档</button><button data-mode="media" type="button" class="active">媒体</button></nav>
+      <div class="mode-note">本地处理</div>
+    </header>
+    <main>
+      <section class="stage">
+        <div class="stage-head">
+          <div><div class="eyebrow" id="eyebrow">MEDIA CONVERSION</div><h1 id="headline">把声音和画面<br>拖给它。</h1></div>
+          <div class="local">OFFLINE / PRIVATE</div>
+        </div>
+        <button class="feed" id="feed" type="button" aria-label="选择待转换文件">
+          <div class="dog-stage"><img id="dog" class="black-dog" src="../../assets/02b-dog-black-transparent.png" alt="媒体转换"></div>
+          <div class="feed-copy"><strong id="feed-title">拖入图片、音频或视频</strong><span>或点击选择文件，支持批量处理</span><div class="formats" id="formats"></div><div class="wave" aria-hidden="true"><i style="--h:18px;--d:-.1s"></i><i style="--h:42px;--d:-.2s"></i><i style="--h:64px;--d:-.3s"></i><i style="--h:30px;--d:-.4s"></i><i style="--h:58px;--d:-.5s"></i><i style="--h:24px;--d:-.6s"></i><i style="--h:70px;--d:-.7s"></i><i style="--h:36px;--d:-.8s"></i><i style="--h:52px;--d:-.9s"></i><i style="--h:20px;--d:-1s"></i></div></div>
+        </button>
+        <div class="stage-foot"><span id="handoff">文档请切换到「文档」处理。</span><span id="ready">READY</span></div>
+      </section>
+      <aside>
+        <div class="inspector-title">转换设置</div>
+        <div class="empty" id="empty">选择文件后显示可用的输出格式。</div>
+        <div id="details" class="hidden">
+          <div class="filebox"><b id="file-name"></b><span id="file-meta">已识别 · 本地处理</span><button class="clear" id="clear-files" type="button">清除</button></div>
+          <div class="field"><label for="target">目标格式</label><select id="target"></select></div>
+          <div class="field" id="quality-field"><label for="quality">图片质量</label><div class="range-row"><input id="quality" type="range" min="1" max="100" value="86"><output id="quality-value">86</output></div></div>
+          <div class="field" id="codec-field"><label for="codec">视频编码</label><select id="codec"><option value="h264">H.264 · 兼容性最佳</option><option value="h265">H.265 · 体积更小</option><option value="av1">AV1 · 压缩率更高</option></select></div>
+          <div class="field"><label>输出位置</label><button class="directory" id="choose-output" type="button"><span id="output-path">请选择输出文件夹</span><b>选择</b></button></div>
+        </div>
+        <div class="progress"><i id="bar"></i></div><div class="status" id="status">文件不会上传到云端。</div>
+        <button class="convert" id="convert" type="button" disabled>开始转换</button>
+      </aside>
+    </main>
+  </div>
+  <input type="file" id="file" multiple>
+  <script src="app.js"></script>
+</body>
+</html>

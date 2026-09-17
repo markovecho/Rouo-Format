@@ -1,0 +1,67 @@
+{
+  "name": "rouo-format",
+  "version": "0.1.1",
+  "description": "Local document and media format converter",
+  "main": "src/main.js",
+  "author": "Rouo Format",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.js",
+    "pack": "electron-builder --win dir",
+    "dist": "electron-builder --win portable nsis"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "docx": "^9.5.1",
+    "exceljs": "^4.4.0",
+    "mammoth": "^1.12.0",
+    "markdown-it": "^14.1.0",
+    "pdfjs-dist": "^5.4.149",
+    "sharp": "^0.35.3",
+    "turndown": "^7.2.1"
+  },
+  "devDependencies": {
+    "electron": "^43.1.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.rouo.format",
+    "productName": "Rouo Format",
+    "directories": {
+      "output": "../../outputs/Rouo-Format-dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "node_modules/@ffmpeg-installer/**",
+      "node_modules/sharp/**",
+      "node_modules/@img/**",
+      "**/*.node"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        { "target": "portable", "arch": ["x64"] },
+        { "target": "nsis", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "artifactName": "Rouo-Format-Setup-${version}-${arch}.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Rouo Format"
+    },
+    "portable": {
+      "artifactName": "Rouo-Format-Portable-${version}-${arch}.${ext}"
+    }
+  }
+}
