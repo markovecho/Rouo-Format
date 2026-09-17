@@ -4,7 +4,7 @@
   "description": "Local document and media format converter",
   "main": "src/main.js",
   "author": "Rouo Format",
-  "license": "UNLICENSED",
+  "license": "BSL-1.0",
   "private": true,
   "scripts": {
     "start": "electron .",
